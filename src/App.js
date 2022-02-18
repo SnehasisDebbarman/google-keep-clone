@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React, { useState } from "react";
+import "./App.css";
+import Login from "./Login";
+import Mainpage from "./main";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
+//firebase
 
 function App() {
+  const [user, setUser] = useState(false);
+  const auth = getAuth();
+  const checkUserExists = () => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(true);
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+      } else {
+        setUser(false);
+        // User is signed out
+        // ...
+      }
+    });
+  };
+  checkUserExists();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" flex flex-col items-center w-[100vw] h-[100vh]">
+      <div className="p-10 ">{user ? <Mainpage /> : <Login />}</div>
     </div>
   );
 }
