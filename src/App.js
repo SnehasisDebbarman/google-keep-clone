@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import React, { useState } from "react";
 import "./App.css";
 import Login from "./Login";
@@ -27,7 +26,7 @@ function App() {
   };
   checkUserExists();
   return (
-    <div className="flex flex-col items-center w-[100vw] h-[100vh]">
+    <div className="flex flex-col items-center w-[100vw] h-[100vh] dark:bg-grey-800">
       <div className="p-1 ">{user ? <Mainpage /> : <Login />}</div>
     </div>
   );

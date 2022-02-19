@@ -1,10 +1,9 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth, provider } from "./firebase/Firebase";
 import React from "react";
 import keepIcon from "./keepIcon.png";
 
 export default function Login() {
-  //const auth = getAuth();
   const signIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {

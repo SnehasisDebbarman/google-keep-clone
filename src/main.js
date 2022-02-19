@@ -34,18 +34,18 @@ const Card = ({ item, date, deleteData, updateData }) => {
     handleDropdown();
   }
   return (
-    <div className=" rounded overflow-hidden shadow-sm bg-slate-50 m-2 border min-h-[50vh]">
+    <div className=" rounded overflow-hidden shadow-sm bg-slate-50 m-2 border min-h-[30vh] ">
       <div className="">
         <div className="flex justify-between items-center p-5">
-          <p className="truncate w-[40%] font-bold text-lg"> {item.title}</p>
-          <span className="text-yellow-600 text-[12px]">
+          <p className="truncate w-[40%] font-bold text-lg "> {item.title}</p>
+          <span className="text-yellow-600 text-[12px] ">
             {new Date(date).toDateString()}
           </span>
           <div class="flex justify-end">
             <button
               id="dropdownButton"
               data-dropdown-toggle="dropdown"
-              className="hidden sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5"
+              className="hidden sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5 "
               type="button"
               onClick={handleDropdown}
             >
@@ -62,7 +62,7 @@ const Card = ({ item, date, deleteData, updateData }) => {
             {showDropdown ? (
               <div
                 id="dropdown"
-                className="absolute mt-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
+                className="absolute mt-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
               >
                 <ul class="py-1" aria-labelledby="dropdownButton">
                   <li>
@@ -135,7 +135,9 @@ const Card = ({ item, date, deleteData, updateData }) => {
             )}
           </div>
         </div>
-        <p className="text-gray-700 text-[12px] border-t-2 p-5">{item.input}</p>
+        <p className="text-gray-700 text-[12px] border-t-2 p-5 ">
+          {item.input}
+        </p>
       </div>
     </div>
   );
@@ -217,8 +219,8 @@ const Mainpage = () => {
   };
 
   return (
-    <div>
-      <ul className="w-auto pl-5 pr-5 pt-5 flex justify-between">
+    <div className="w-[100vw]">
+      <ul className="w-auto pl-5 pr-5 pt-5 flex justify-between ">
         <li className="mr-6 flex flex-row justify-center items-center gap-5">
           <img src={keepIcon} alt="keep" className="w-8 h-8 " />
           <a className="text-yellow-800 hover:text-blue-800" href="#">
@@ -232,9 +234,9 @@ const Mainpage = () => {
           </a>
         </li>
       </ul>
-      <div>
+      <div className="w-[90vw] bg-grey-100 dark:bg-grey-800">
         <div className="pt-5 flex justify-center">
-          <div className="flex flex-col mb-3 xl:w-96">
+          <div className=" w-[40vw] flex flex-col mb-3">
             <label
               for="exampleFormControlTextarea1"
               className="form-label inline-block mb-2 text-gray-700"
@@ -266,7 +268,7 @@ const Mainpage = () => {
         </div>
       </div>
       <div className="pl-16 text-3xl">Notes</div>
-      <div className="grid pl-10 pr-10  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+      <div className="grid pl-10 pr-10  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
         {keepList.map((item) => (
           <Card
             key={item.id}
