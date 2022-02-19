@@ -27,8 +27,8 @@ function App() {
   };
   checkUserExists();
   return (
-    <div className=" flex flex-col items-center w-[100vw] h-[100vh]">
-      <div className="p-10 ">{user ? <Mainpage /> : <Login />}</div>
+    <div className="flex flex-col items-center w-[100vw] h-[100vh]">
+      <div className="p-1 ">{user ? <Mainpage /> : <Login />}</div>
     </div>
   );
 }
